@@ -6,13 +6,13 @@ import numpy as np
 import os
 
 def main():
-    image_name = "racoon"
-    image_rel_path = ImageHolder(path=f"assets/{image_name}.jpeg")
-    save_image(image_rel_path.get_gray_scale(), f"assets/{image_name}_gray.jpeg")
-    filt = get_filter("sobel_x")
-    convolutor = Convolutor(filt, 1/2)
+    image_name = "tiger"
+    image_rel_path = ImageHolder(path=f"assets/base/{image_name}.jpeg")
+    save_image(image_rel_path.get_gray_scale(), f"assets/gray/{image_name}_gray.jpeg")
+    filt = get_filter("backward")
+    convolutor = Convolutor(filt, 1)
     edge = convolutor.convolution(image_rel_path.get_gray_scale())
-    save_image(edge, f"assets/{image_name}_edge.jpeg")
+    save_image(edge, f"assets/processed/{image_name}_edge.jpeg")
     print("Edge detection project!")
     
 def save_image(image, path):
