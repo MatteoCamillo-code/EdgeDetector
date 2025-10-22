@@ -39,7 +39,7 @@ class ImageHolder:
     def update_image(self):
         self.data.save(self.path)
         
-    def get_gray_scale(self):
+    def to_gray_scale(self):
         raw_data = self.get_data()
         size = (self.get_height(), self.get_width())
         gray_data = np.zeros(size, dtype=np.uint8)

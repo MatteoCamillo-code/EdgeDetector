@@ -4,19 +4,19 @@ import math
 class Convolutor:
     
     filter_arr = None
-    gamma = -1
-    
-    def __init__(self, filter, gamma):
+    gamma = None
+
+    def __init__(self, filter = None, gamma = None):
         self.filter_arr = filter
         self.gamma = gamma
         pass
     
-    def set_filter(self, filter, gamma):
+    def set_filter(self, filter, gamma = None):
         self.filter_arr = filter
-        self.gamma = gamma
+        self.gamma = gamma if gamma is not None else self.gamma
     
     def convolution(self, image):
-        if self.filter_arr is None or self.gamma == -1:
+        if self.filter_arr is None or self.gamma is None:
             raise ValueError("Filter not set")
         filt = np.flip(self.filter_arr)
         if filt.ndim == 1:
